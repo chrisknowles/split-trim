@@ -1,0 +1,31 @@
+{
+  "name": "split-trim",
+  "version": "0.1.0",
+  "description": "Splits a string and trims the results, removing any empty items after trimming.",
+  "main": "dist/index.js",
+  "module": "src/split-trim.js",
+  "scripts": {
+    "build": "rollup -c && rollup -c ./rollup.min.config.js",
+    "test": "babel-tape-runner ./tests/**/*.js | tap-difflet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chrisknowles/split-trim.git"
+  },
+  "keywords": [
+    "string",
+    "split",
+    "trim"
+  ],
+  "author": "Chris Knowles <chris@chrisknowles.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-tape-runner": "^3.0.0",
+    "rollup": "^1.2.2",
+    "rollup-plugin-butternut": "^0.1.0",
+    "tap-difflet": "^0.7.1",
+    "tape": "^4.10.1"
+  }
+}

@@ -1,0 +1,31 @@
+import {splitTrim} from '../src/split-trim';
+import test from 'tape';
+
+test('Tests', t => {
+  t.deepEqual(splitTrim(1, '.'), []);
+  t.deepEqual(splitTrim(-1, '.'), []);
+  t.deepEqual(splitTrim('1', '.'), ['1']);
+  t.deepEqual(splitTrim('', '.'), []);
+  t.deepEqual(splitTrim([], '.'), []);
+  t.deepEqual(splitTrim([[]], '.'), []);
+  t.deepEqual(splitTrim([0], '.'), []);
+  t.deepEqual(splitTrim([1], '.'), []);
+  t.deepEqual(splitTrim({}, '.'), []);
+  t.deepEqual(splitTrim({a: {b: {}}}, '.'), []);
+  t.deepEqual(splitTrim(NaN, '.'), []);
+  t.deepEqual(splitTrim(undefined, '.'), []);
+  t.deepEqual(splitTrim(null, '.'), []);
+  t.deepEqual(splitTrim(false, '.'), []);
+  t.deepEqual(splitTrim('false', '.'), ['false']);
+  t.deepEqual(splitTrim('true', '.'), ['true']);
+  t.deepEqual(splitTrim(true, '.'), []);
+  t.deepEqual(splitTrim(Infinity, '.'), []);
+  t.deepEqual(splitTrim(-Infinity, '.'), []);
+  t.deepEqual(splitTrim('a,b,c', ','), ['a', 'b', 'c']);
+  t.deepEqual(splitTrim('a, b, c', ','), ['a', 'b', 'c']);
+  t.deepEqual(splitTrim(' a , b , c ', ','), ['a', 'b', 'c']);
+  t.deepEqual(splitTrim('a, b, c', '.'), ['a, b, c']);
+  t.deepEqual(splitTrim(',a,b,c,', ','), ['a', 'b', 'c']);
+  t.deepEqual(splitTrim(' ,a,b,c, ', ','), ['a', 'b', 'c']);
+  t.end();
+});
